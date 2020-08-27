@@ -1,5 +1,5 @@
 const rankTest = require('ava');
-const { voyageRisk, voyageProfitFactor } = require('../src/rank');
+const { voyageRisk, voyageProfitFactor, captainHistoryRisk } = require('../src/rank');
 
 rankTest('foo', t => {
   t.pass();
@@ -250,4 +250,27 @@ rankTest('rank case 12. voyageProfitFactor test voyage zone is east-indies and h
   const result = voyageProfitFactor(voyage, history)
 
   t.is(result, 3);
+})
+
+rankTest('rank case 13. captainHistoryRisk test history length is 3 and history profit < 0 is 1 and voyage zone is china and history hasChina', t => {
+  const voyage = {
+    zone: 'china',
+    length: 10,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: -1,
+    },{
+      zone: 'china',
+      profit: 2,
+    },
+  ];
+
+  const result = captainHistoryRisk(voyage, history)
+
+  t.is(result, 4);
 })

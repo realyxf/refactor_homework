@@ -362,3 +362,37 @@ rankTest('rank case 15. rating test return A', t => {
 
   t.is(result, 'A');
 })
+
+
+rankTest('rank case 16.rating test return B.', t => {
+  const voyage = {
+    zone: 'west-indies',
+    length: 15,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },
+    {
+      zone: 'west-indies',
+      profit: 15,
+    },
+    {
+      zone: 'east-indies1',
+      profit: 2,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },
+    {
+      zone: 'west-indies1',
+      profit: 15,
+    }
+  ];
+
+  const result = rating(voyage, history)
+
+  t.is(result, 'B');
+})

@@ -10,7 +10,7 @@ rankTest('bar', async t => {
   t.is(await bar, 'bar');
 });
 
-rankTest('rank case 1. voyage zone is east-indies and length is 4.', t => {
+rankTest('rank case 1. voyage zone is west-indies and length is 4.', t => {
   const voyage = {
     zone: 'west-indies',
     length: 4,
@@ -20,7 +20,7 @@ rankTest('rank case 1. voyage zone is east-indies and length is 4.', t => {
   t.is(result, 1);
 })
 
-rankTest('rank case 2. voyage zone is east-indies and length is 5.', t => {
+rankTest('rank case 2. voyage zone is west-indies and length is 5.', t => {
   const voyage = {
     zone: 'west-indies',
     length: 5,
@@ -28,4 +28,14 @@ rankTest('rank case 2. voyage zone is east-indies and length is 5.', t => {
   const result = voyageRisk(voyage)
 
   t.is(result, 3);
+})
+
+rankTest('rank case 3. voyage zone is west-indies and length is 9.', t => {
+  const voyage = {
+    zone: 'west-indies',
+    length: 9,
+  };
+  const result = voyageRisk(voyage)
+
+  t.is(result, 4);
 })

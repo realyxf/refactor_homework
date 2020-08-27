@@ -176,7 +176,7 @@ rankTest('rank case 10. voyageProfitFactor test voyage zone is china and history
   t.is(result, 3);
 })
 
-rankTest('rank case 10. voyageProfitFactor test voyage zone is china and history hasChina and history length is 11 and voyage length is 19.', t => {
+rankTest('rank case 11. voyageProfitFactor test voyage zone is china and history hasChina and history length is 11 and voyage length is 19.', t => {
   const voyage = {
     zone: 'china',
     length: 19,
@@ -233,4 +233,21 @@ rankTest('rank case 10. voyageProfitFactor test voyage zone is china and history
   const result = voyageProfitFactor(voyage, history)
 
   t.is(result, 7);
+})
+
+rankTest('rank case 12. voyageProfitFactor test voyage zone is east-indies and history no hasChina and history length is 1 and voyage length is 10.', t => {
+  const voyage = {
+    zone: 'east-indies',
+    length: 10,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },
+  ]
+
+  const result = voyageProfitFactor(voyage, history)
+
+  t.is(result, 3);
 })

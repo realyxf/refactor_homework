@@ -70,7 +70,7 @@ rankTest('rank case 6. voyageRisk test voyage zone is china and length is 10.', 
   t.is(result, 9);
 })
 
-rankTest('rank case 7. voyageProfitFactor test voyage zone is west-indies and history length is 2 and voyage length is 10', t => {
+rankTest('rank case 7. voyageProfitFactor test voyage zone is west-indies and history length is 2 and voyage length is 10.', t => {
   const voyage = {
     zone: 'west-indies',
     length: 10,
@@ -90,7 +90,7 @@ rankTest('rank case 7. voyageProfitFactor test voyage zone is west-indies and hi
   t.is(result, 2);
 })
 
-rankTest('rank case 8. voyageProfitFactor test voyage zone is west-indies and history length is 2 and voyage length is 15', t => {
+rankTest('rank case 8. voyageProfitFactor test voyage zone is west-indies and history length is 2 and voyage length is 15.', t => {
   const voyage = {
     zone: 'west-indies',
     length: 15,
@@ -108,4 +108,53 @@ rankTest('rank case 8. voyageProfitFactor test voyage zone is west-indies and hi
   const result = voyageProfitFactor(voyage, history)
 
   t.is(result, 1);
+})
+
+rankTest('rank case 9. voyageProfitFactor test voyage zone is west-indies and history length is 9 and voyage length is 15.', t => {
+  const voyage = {
+    zone: 'west-indies',
+    length: 15,
+  };
+  const history = [
+    {
+      zone: 'east-indies1',
+      profit: 5,
+    },
+    {
+      zone: 'east-indies2',
+      profit: 5,
+    },
+    {
+      zone: 'east-indies3',
+      profit: 5,
+    },
+    {
+      zone: 'east-indies4',
+      profit: 5,
+    },
+    {
+      zone: 'east-indies5',
+      profit: 5,
+    },
+    {
+      zone: 'east-indies6',
+      profit: 5,
+    },
+    {
+      zone: 'east-indies7',
+      profit: 5,
+    },
+    {
+      zone: 'east-indies8',
+      profit: 5,
+    },
+    {
+      zone: 'east-indies9',
+      profit: 5,
+    },
+  ]
+
+  const result = voyageProfitFactor(voyage, history)
+
+  t.is(result, 2);
 })

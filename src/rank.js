@@ -3,7 +3,6 @@ function hasChinaOrEastindies(voyage) {
         'china',
         'east-indies',
     ].includes(voyage.zone);
-
 }
 
 function voyageRisk(voyage) {
@@ -24,12 +23,16 @@ function hasChina(history) {
     return history.some(v => 'china' === v.zone);
 }
 
+function getProfitThan0Length(history) {
+    return history.filter(v => v.profit < 0).length;
+}
+
 function captainHistoryRisk(voyage, history) {
     let result = 1;
     if (history.length < 5) {
         result += 4;
     }
-    result += history.filter(v => v.profit < 0).length;
+    result += getProfitThan0Length(history);
     if (voyage.zone === 'china' && hasChina(history)) {
         result -= 2;
     }
